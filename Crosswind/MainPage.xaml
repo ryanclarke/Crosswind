@@ -1,0 +1,168 @@
+﻿<phone:PhoneApplicationPage x:Class="Crosswind.MainPage"
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                            xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            mc:Ignorable="d"
+                            FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"
+                            Foreground="{StaticResource PhoneForegroundBrush}"
+                            SupportedOrientations="Portrait"
+                            Orientation="Portrait"
+                            shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot"
+          Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="TitlePanel"
+                    Grid.Row="0"
+                    Margin="12,17,0,28">
+            <TextBlock Text="Crosswind Reckoner"
+                       Style="{StaticResource PhoneTextNormalStyle}"
+                       Margin="12,0" />
+        </StackPanel>
+
+        <Grid x:Name="ContentPanel"
+              Grid.Row="1"
+              Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.Resources>
+                <ResourceDictionary>
+                    <Style x:Key="xwBox"
+                           TargetType="StackPanel">
+                        <Setter Property="Grid.Row"
+                                Value="1" />
+                        <Setter Property="Orientation"
+                                Value="Vertical" />
+                        <Setter Property="Margin"
+                                Value="12" />
+                        <Setter Property="Background"
+                                Value="{StaticResource PhoneAccentBrush}" />
+                    </Style>
+                    <Style x:Key="xwNumber"
+                           TargetType="TextBlock">
+                        <Setter Property="HorizontalAlignment"
+                                Value="Center" />
+                        <Setter Property="FontSize"
+                                Value="72" />
+                        <Setter Property="Padding"
+                                Value="12,0" />
+                    </Style>
+                    <Style x:Key="xwNumbers"
+                           TargetType="StackPanel">
+                        <Setter Property="HorizontalAlignment"
+                                Value="Center" />
+                        <Setter Property="Orientation"
+                                Value="Horizontal" />
+                    </Style>
+                    <Style x:Key="xwTitle"
+                           TargetType="TextBlock">
+                        <Setter Property="Padding"
+                                Value="12,0,12,12" />
+                        <Setter Property="Margin"
+                                Value="0,-12,0,0" />
+                        <Setter Property="HorizontalAlignment"
+                                Value="Center" />
+                    </Style>
+                    <Style x:Key="xwDegree"
+                           TargetType="TextBlock">
+                        <Setter Property="Text"
+                                Value="°" />
+                        <Setter Property="Margin"
+                                Value="-12,6,0,0" />
+                        <Setter Property="FontSize"
+                                Value="48" />
+                    </Style>
+                    <Style x:Key="xwKnots"
+                           TargetType="TextBlock">
+                        <Setter Property="Text"
+                                Value="kn" />
+                        <Setter Property="VerticalAlignment"
+                                Value="Bottom" />
+                        <Setter Property="Margin"
+                                Value="-12,0,0,15" />
+                        <Setter Property="FontSize"
+                                Value="18" />
+                    </Style>
+                </ResourceDictionary>
+            </Grid.Resources>
+
+            <StackPanel Grid.Column="0"
+                        Style="{StaticResource xwBox}">
+                <StackPanel Style="{StaticResource xwNumbers}">
+                    <TextBlock Text="31"
+                               Style="{StaticResource xwNumber}" />
+                    <TextBlock Style="{StaticResource xwDegree}" />
+                </StackPanel>
+                <TextBlock Text="runway"
+                           Style="{StaticResource xwTitle}" />
+            </StackPanel>
+            <StackPanel Grid.Column="1"
+                        Style="{StaticResource xwBox}">
+                <StackPanel Style="{StaticResource xwNumbers}">
+                    <TextBlock Text="32"
+                               Style="{StaticResource xwNumber}" />
+                    <TextBlock Style="{StaticResource xwDegree}" />
+                </StackPanel>
+                <TextBlock Text="wind heading"
+                           Style="{StaticResource xwTitle}" />
+            </StackPanel>
+            <StackPanel Grid.Column="2"
+                        Style="{StaticResource xwBox}">
+                <StackPanel Style="{StaticResource xwNumbers}">
+                    <TextBlock Text="33"
+                               Style="{StaticResource xwNumber}" />
+                    <TextBlock Style="{StaticResource xwKnots}" />
+                </StackPanel>
+                <TextBlock Text="wind speed"
+                           Style="{StaticResource xwTitle}" />
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="3"
+                    Margin="36">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="34"
+                           Foreground="{StaticResource PhoneAccentBrush}"
+                           FontSize="288" />
+                <TextBlock Text="kn"
+                           FontSize="72"
+                           VerticalAlignment="Bottom"
+                           Padding="12,0,0,54"/>
+            </StackPanel>
+            <TextBlock FontSize="48"
+                       Margin="0,-48,0,0"
+                       HorizontalAlignment="Center">
+                <Run Text="from the" />
+                <Run Text="starboard"
+                     Foreground="{StaticResource PhoneAccentBrush}" />
+            </TextBlock>
+        </StackPanel>
+
+        <!--Uncomment to see an alignment grid to help ensure your controls are
+            aligned on common boundaries.  The image has a top margin of -32px to
+            account for the System Tray. Set this to 0 (or remove the margin altogether)
+            if the System Tray is hidden.
+
+            Before shipping remove this XAML and the image itself.-->
+        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+    </Grid>
+
+</phone:PhoneApplicationPage>
