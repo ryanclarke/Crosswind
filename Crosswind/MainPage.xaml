@@ -104,9 +104,11 @@
             </Grid.Resources>
 
             <StackPanel Grid.Column="0"
+                        Tap="Runway_Tap"
                         Style="{StaticResource xwBox}">
                 <StackPanel Style="{StaticResource xwNumbers}">
-                    <TextBlock Text="31"
+                    <TextBlock x:Name="RunwayNumber"
+                               Text="31"
                                Style="{StaticResource xwNumber}" />
                     <TextBlock Style="{StaticResource xwDegree}" />
                 </StackPanel>
@@ -145,7 +147,7 @@
                 <TextBlock Text="kn"
                            FontSize="72"
                            VerticalAlignment="Bottom"
-                           Padding="12,0,0,54"/>
+                           Padding="12,0,0,54" />
             </StackPanel>
             <TextBlock FontSize="48"
                        Margin="0,-48,0,0"

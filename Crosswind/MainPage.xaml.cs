@@ -22,6 +22,18 @@ namespace Crosswind
             //BuildLocalizedApplicationBar();
         }
 
+        private void Runway_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            var path = string.Format("/RunwayPage.xaml?Runway={0}", RunwayNumber.Text);
+            NavigationService.Navigate(new Uri(path, UriKind.Relative));
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            RunwayNumber.Text = NavigationContext.QueryString["Runway"];
+            base.OnNavigatedTo(e);
+        }
+
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{
