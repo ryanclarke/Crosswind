@@ -116,9 +116,11 @@
                            Style="{StaticResource xwTitle}" />
             </StackPanel>
             <StackPanel Grid.Column="1"
+                        Tap="WindHeading_Tap"
                         Style="{StaticResource xwBox}">
                 <StackPanel Style="{StaticResource xwNumbers}">
-                    <TextBlock Text="32"
+                    <TextBlock x:Name="WindHeadingNumber"
+                               Text="32"
                                Style="{StaticResource xwNumber}" />
                     <TextBlock Style="{StaticResource xwDegree}" />
                 </StackPanel>
@@ -126,9 +128,11 @@
                            Style="{StaticResource xwTitle}" />
             </StackPanel>
             <StackPanel Grid.Column="2"
+                        Tap="WindSpeed_Tap"
                         Style="{StaticResource xwBox}">
                 <StackPanel Style="{StaticResource xwNumbers}">
-                    <TextBlock Text="33"
+                    <TextBlock x:Name="WindSpeedNumber"
+                               Text="33"
                                Style="{StaticResource xwNumber}" />
                     <TextBlock Style="{StaticResource xwKnots}" />
                 </StackPanel>

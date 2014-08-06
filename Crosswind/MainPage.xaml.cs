@@ -28,9 +28,32 @@ namespace Crosswind
             NavigationService.Navigate(new Uri(path, UriKind.Relative));
         }
 
+        private void WindHeading_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            var path = string.Format("/WindHeadingPage.xaml?WindHeading={0}", WindHeadingNumber.Text);
+            NavigationService.Navigate(new Uri(path, UriKind.Relative));
+        }
+
+        private void WindSpeed_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            var path = string.Format("/WindSpeedPage.xaml?WindSpeed={0}", WindHeadingNumber.Text);
+            NavigationService.Navigate(new Uri(path, UriKind.Relative));
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            RunwayNumber.Text = NavigationContext.QueryString["Runway"];
+            if (NavigationContext.QueryString.ContainsKey("Runway"))
+            {
+                RunwayNumber.Text = NavigationContext.QueryString["Runway"];
+            }
+            if (NavigationContext.QueryString.ContainsKey("WindHeading"))
+            {
+                WindHeadingNumber.Text = NavigationContext.QueryString["WindHeading"];
+            }
+            if (NavigationContext.QueryString.ContainsKey("WindSpeed"))
+            {
+                WindSpeedNumber.Text = NavigationContext.QueryString["WindSpeed"];
+            }
             base.OnNavigatedTo(e);
         }
 

@@ -103,6 +103,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="WindSpeedPage.xaml.cs">
+      <DependentUpon>WindSpeedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindHeadingPage.xaml.cs">
+      <DependentUpon>WindHeadingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RunwayPage.xaml.cs">
       <DependentUpon>RunwayPage.xaml</DependentUpon>
     </Compile>
@@ -115,6 +121,12 @@
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindSpeedPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WindHeadingPage.xaml">
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="RunwayPage.xaml">
       <SubType>Designer</SubType>

@@ -11,9 +11,9 @@ using System.Windows.Media;
 
 namespace Crosswind
 {
-    public partial class RunwayPage : PhoneApplicationPage
+    public partial class WindHeadingPage : PhoneApplicationPage
     {
-        public RunwayPage()
+        public WindHeadingPage()
         {
             InitializeComponent();
 
@@ -45,15 +45,15 @@ namespace Crosswind
 
         private void sp_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            var path = string.Format("/MainPage.xaml?Runway={0}", Uri.EscapeUriString((sender as StackPanel).Tag as string));
+            var path = string.Format("/MainPage.xaml?WindHeading={0}", Uri.EscapeUriString((sender as StackPanel).Tag as string));
             NavigationService.Navigate(new Uri(path, UriKind.Relative));
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (NavigationContext.QueryString.ContainsKey("Runway"))
+            if (NavigationContext.QueryString.ContainsKey("WindHeading"))
             {
-                var r = NavigationContext.QueryString["Runway"];
+                var r = NavigationContext.QueryString["WindHeading"];
                 var items = ContentPanel.Children.First(x =>
                 {
                     var sp = x as StackPanel;
