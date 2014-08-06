@@ -57,7 +57,7 @@
                         <Setter Property="Margin"
                                 Value="12" />
                         <Setter Property="Background"
-                                Value="{StaticResource PhoneAccentBrush}" />
+                                Value="{StaticResource RunwayColor}" />
                     </Style>
                     <Style x:Key="xwNumber"
                            TargetType="TextBlock">

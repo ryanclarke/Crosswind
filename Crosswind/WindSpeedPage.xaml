@@ -38,6 +38,7 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="12" />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <TextBox x:Name="Digit1"
                      Grid.Row="0"
@@ -48,8 +49,7 @@
                      Margin="-12"
                      TextAlignment="Center"
                      TextChanged="Digit1_TextChanged"
-                     Foreground="{StaticResource PhoneAccentBrush}"
-                     Background="{StaticResource PhoneAccentBrush}"
+                     Foreground="{StaticResource WindSpeedColor}"
                      BorderThickness="0"
                      GotFocus="TextBox_GotFocus"
                      TabIndex="0"
@@ -63,12 +63,17 @@
                      Margin="-12"
                      TextAlignment="Center"
                      TextChanged="Digit2_TextChanged"
-                     Foreground="{StaticResource PhoneAccentBrush}"
-                     Background="{StaticResource PhoneAccentBrush}"
+                     Foreground="{StaticResource WindSpeedColor}"
                      BorderThickness="0"
                      GotFocus="TextBox_GotFocus"
                      TabIndex="0"
                      InputScope="Number" />
+            <TextBlock Text="kn"
+                       Grid.Row="0"
+                       Grid.Column="3"
+                       FontSize="64"
+                       Padding="0,0,0,36"
+                       VerticalAlignment="Bottom"/>
             <Rectangle x:Name="Underscore1"
                        Grid.Row="1"
                        Grid.Column="0"
@@ -76,7 +81,7 @@
                        Height="4"
                        HorizontalAlignment="Stretch"
                        VerticalAlignment="Top"
-                       Fill="{StaticResource PhoneAccentBrush}" />
+                       Fill="White" />
             <Rectangle x:Name="Underscore2"
                        Grid.Row="1"
                        Grid.Column="2"
@@ -84,7 +89,7 @@
                        Height="4"
                        HorizontalAlignment="Stretch"
                        VerticalAlignment="Top"
-                       Fill="{StaticResource PhoneAccentBrush}" />
+                       Fill="White" />
         </Grid>
     </Grid>
 

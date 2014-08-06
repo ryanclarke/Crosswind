@@ -13,7 +13,8 @@ namespace Crosswind
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        // Constructor
+        private Model model;
+
         public MainPage()
         {
             InitializeComponent();
@@ -24,36 +25,36 @@ namespace Crosswind
 
         private void Runway_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            var path = string.Format("/RunwayPage.xaml?Runway={0}", RunwayNumber.Text);
-            NavigationService.Navigate(new Uri(path, UriKind.Relative));
+            model.Runway = RunwayNumber.Text;
+            var uri = UrlService.CreateNavigationUri(UrlService.RunwayPage, model); 
+            NavigationService.Navigate(uri);
         }
 
         private void WindHeading_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            var path = string.Format("/WindHeadingPage.xaml?WindHeading={0}", WindHeadingNumber.Text);
-            NavigationService.Navigate(new Uri(path, UriKind.Relative));
+            model.WindHeading = WindHeadingNumber.Text;
+            var uri = UrlService.CreateNavigationUri(UrlService.WindHeadingPage, model);
+            NavigationService.Navigate(uri);
         }
 
         private void WindSpeed_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            var path = string.Format("/WindSpeedPage.xaml?WindSpeed={0}", WindHeadingNumber.Text);
-            NavigationService.Navigate(new Uri(path, UriKind.Relative));
+            model.WindSpeed = WindHeadingNumber.Text;
+            var uri = UrlService.CreateNavigationUri(UrlService.WindSpeedPage, model);
+            NavigationService.Navigate(uri);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (NavigationContext.QueryString.ContainsKey("Runway"))
-            {
-                RunwayNumber.Text = NavigationContext.QueryString["Runway"];
-            }
-            if (NavigationContext.QueryString.ContainsKey("WindHeading"))
-            {
-                WindHeadingNumber.Text = NavigationContext.QueryString["WindHeading"];
-            }
-            if (NavigationContext.QueryString.ContainsKey("WindSpeed"))
-            {
-                WindSpeedNumber.Text = NavigationContext.QueryString["WindSpeed"];
-            }
+            model = UrlService.ExtractModelFromQueryString(NavigationContext.QueryString);
+
+            RunwayNumber.Text = model.Runway;
+            WindHeadingNumber.Text = model.WindHeading;
+            WindSpeedNumber.Text = model.WindSpeed;
+            CrosswindNumber.Text = model.CrosswindSpeed();
+            CrosswindDirection.Text = model.CrosswindDirection();
+            CrosswindDirectionBlock.Visibility = model.ShouldCrosswindDirection() ? Visibility.Visible : Visibility.Collapsed;
+
             base.OnNavigatedTo(e);
         }
 

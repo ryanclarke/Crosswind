@@ -14,11 +14,23 @@ namespace Crosswind
 {
     public partial class WindSpeedPage : PhoneApplicationPage
     {
+        private Model model;
+
         public WindSpeedPage()
         {
             InitializeComponent();
 
-            this.Loaded += (s, e) => Digit1.Focus();
+            this.Loaded += (s, e) =>
+            {
+                Digit1.Focus();
+                Underscore1.Fill = App.Current.Resources["WindSpeedColor"] as SolidColorBrush;
+            };
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            model = UrlService.ExtractModelFromQueryString(NavigationContext.QueryString);
+            base.OnNavigatedTo(e);
         }
 
         private void Digit1_TextChanged(object sender, TextChangedEventArgs e)
@@ -26,6 +38,8 @@ namespace Crosswind
             if (Digit1.Text.Any())
             {
                 Digit2.Focus();
+                Underscore1.Fill = new SolidColorBrush(Colors.White);
+                Underscore2.Fill = App.Current.Resources["WindSpeedColor"] as SolidColorBrush;
             }
         }
 
@@ -33,14 +47,22 @@ namespace Crosswind
         {
             if (Digit2.Text.Any())
             {
-                var path = string.Format("/MainPage.xaml?WindSpeed={0}{1}", Digit1.Text, Digit2.Text);
-                NavigationService.Navigate(new Uri(path, UriKind.Relative));
+                Underscore2.Fill = new SolidColorBrush(Colors.White);
+
+                model.WindSpeed = EnteredWindSpeed();
+                var uri = UrlService.CreateNavigationUri(model);
+                NavigationService.Navigate(uri);
             }
+        }
+
+        private string EnteredWindSpeed()
+        {
+            return string.Format("{0}{1}", Digit1.Text, Digit2.Text);
         }
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            var bg = new SolidColorBrush(Colors.Black);
+            var bg = App.Current.Resources["PhoneBackgroundBrush"] as SolidColorBrush;
             Digit1.Background = bg;
             Digit2.Background = bg;
         }

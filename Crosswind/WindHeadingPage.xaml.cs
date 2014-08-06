@@ -13,6 +13,8 @@ namespace Crosswind
 {
     public partial class WindHeadingPage : PhoneApplicationPage
     {
+        private Model model;
+
         public WindHeadingPage()
         {
             InitializeComponent();
@@ -32,7 +34,7 @@ namespace Crosswind
 
                 var sp = new StackPanel();
                 sp.Margin = new Thickness(6);
-                sp.Background = App.Current.Resources["PhoneAccentBrush"] as SolidColorBrush;
+                sp.Background = App.Current.Resources["WindHeadingColor"] as SolidColorBrush;
                 sp.Tap += sp_Tap;
                 sp.Tag = string.Format("{0:00}", i);
                 sp.Children.Add(tb);
@@ -45,23 +47,26 @@ namespace Crosswind
 
         private void sp_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            var path = string.Format("/MainPage.xaml?WindHeading={0}", Uri.EscapeUriString((sender as StackPanel).Tag as string));
-            NavigationService.Navigate(new Uri(path, UriKind.Relative));
+            model.WindHeading = (string)(sender as StackPanel).Tag;
+            var uri = UrlService.CreateNavigationUri(model);
+            NavigationService.Navigate(uri);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (NavigationContext.QueryString.ContainsKey("WindHeading"))
-            {
-                var r = NavigationContext.QueryString["WindHeading"];
-                var items = ContentPanel.Children.First(x =>
-                {
-                    var sp = x as StackPanel;
-                    return sp.Tag.ToString() == r;
-                });
-                var item = items as StackPanel;
-                item.Background = new SolidColorBrush(Colors.Blue);
-            }
+            model = UrlService.ExtractModelFromQueryString(NavigationContext.QueryString);
+
+            //if (!string.IsNullOrWhiteSpace(model.WindHeading))
+            //{
+            //    var items = ContentPanel.Children.First(x =>
+            //    {
+            //        var sp = x as StackPanel;
+            //        return sp.Tag.ToString() == model.WindHeading;
+            //    });
+            //    var item = items as StackPanel;
+            //    item.Background = new SolidColorBrush(Colors.Blue);
+            //}
+
             base.OnNavigatedTo(e);
         }
     }

@@ -52,8 +52,6 @@
                                 Value="Vertical" />
                         <Setter Property="Margin"
                                 Value="12" />
-                        <Setter Property="Background"
-                                Value="{StaticResource PhoneAccentBrush}" />
                     </Style>
                     <Style x:Key="xwNumber"
                            TargetType="TextBlock">
@@ -105,6 +103,7 @@
 
             <StackPanel Grid.Column="0"
                         Tap="Runway_Tap"
+                        Background="{StaticResource RunwayColor}"
                         Style="{StaticResource xwBox}">
                 <StackPanel Style="{StaticResource xwNumbers}">
                     <TextBlock x:Name="RunwayNumber"
@@ -117,6 +116,7 @@
             </StackPanel>
             <StackPanel Grid.Column="1"
                         Tap="WindHeading_Tap"
+                        Background="{StaticResource WindHeadingColor}"
                         Style="{StaticResource xwBox}">
                 <StackPanel Style="{StaticResource xwNumbers}">
                     <TextBlock x:Name="WindHeadingNumber"
@@ -129,6 +129,7 @@
             </StackPanel>
             <StackPanel Grid.Column="2"
                         Tap="WindSpeed_Tap"
+                        Background="{StaticResource WindSpeedColor}"
                         Style="{StaticResource xwBox}">
                 <StackPanel Style="{StaticResource xwNumbers}">
                     <TextBlock x:Name="WindSpeedNumber"
@@ -144,8 +145,9 @@
         <StackPanel Grid.Row="3"
                     Margin="36">
             <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Center">
-                <TextBlock Text="34"
+                        HorizontalAlignment="Right">
+                <TextBlock x:Name="CrosswindNumber"
+                           Text="34"
                            Foreground="{StaticResource PhoneAccentBrush}"
                            FontSize="288" />
                 <TextBlock Text="kn"
@@ -153,11 +155,12 @@
                            VerticalAlignment="Bottom"
                            Padding="12,0,0,54" />
             </StackPanel>
-            <TextBlock FontSize="48"
+            <TextBlock x:Name="CrosswindDirectionBlock" FontSize="48"
                        Margin="0,-48,0,0"
-                       HorizontalAlignment="Center">
+                       HorizontalAlignment="Right">
                 <Run Text="from the" />
-                <Run Text="starboard"
+                <Run x:Name="CrosswindDirection"
+                     Text="."
                      Foreground="{StaticResource PhoneAccentBrush}" />
             </TextBlock>
         </StackPanel>
