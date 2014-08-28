@@ -24,9 +24,9 @@ namespace Crosswind
 
         private void SetupStatusHeader()
         {
-            StatusRunwayNumber.Text = model.Runway ?? "__";
-            StatusWindHeadingNumber.Text = model.WindHeading ?? "__";
-            StatusWindSpeedNumber.Text = model.WindSpeed ?? "__";
+            StatusRunwayNumber.Text = model.NeedsRunway() ? "__" : model.Runway;
+            StatusWindHeadingNumber.Text = model.NeedsWindHeading() ? "__" : model.WindHeading;
+            StatusWindSpeedNumber.Text = model.NeedsWindSpeed() ? "__" : model.WindSpeed;
         }
 
         private void FillContentPanel()

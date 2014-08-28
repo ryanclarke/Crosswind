@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Crosswind
 {
-    class Model
+    public class Model
     {
         public string Runway { get; set; }
         public string WindHeading { get; set; }

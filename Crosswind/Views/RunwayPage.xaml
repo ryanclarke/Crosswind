@@ -20,15 +20,6 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!--<StackPanel Grid.Row="0"
-                    Margin="12,17,0,28">
-            <TextBlock Text="Crosswind Reckoner - Runway Heading"
-                       Style="{StaticResource PhoneTextNormalStyle}" />
-            -->
-        <!--<TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>-->
-        <!--
-        </StackPanel>-->
-
         <Grid Grid.Row="0"
               Margin="18,0">
             <Grid.ColumnDefinitions>
@@ -68,20 +59,17 @@
             <StackPanel Grid.Column="0"
                         Style="{StaticResource topBox}">
                 <TextBlock x:Name="StatusRunwayNumber"
-                           Text="11"
                            Style="{StaticResource topNumber}" />
             </StackPanel>
             <StackPanel Grid.Column="1"
                         Background="{StaticResource WindHeadingColor}"
                         Style="{StaticResource topBox}">
                 <TextBlock x:Name="StatusWindHeadingNumber"
-                           Text="44"
                            Style="{StaticResource topNumber}" />
             </StackPanel>
             <StackPanel Grid.Column="2"
                         Style="{StaticResource topBox}">
                 <TextBlock x:Name="StatusWindSpeedNumber"
-                           Text="77"
                            Style="{StaticResource topNumber}" />
             </StackPanel>
             <StackPanel Grid.Column="3" Margin="6" >
@@ -145,37 +133,6 @@
                     </Style>
                 </ResourceDictionary>
             </Grid.Resources>
-
-            <!--<StackPanel Grid.Row="0"
-                        Grid.Column="0"
-                        Style="{StaticResource xwBox}">
-                <TextBlock Text="00"
-                           Style="{StaticResource xwNumber}" />
-            </StackPanel>
-            <StackPanel Grid.Row="0"
-                        Grid.Column="1"
-                        Style="{StaticResource xwBox}">
-                <TextBlock Text="01"
-                           Style="{StaticResource xwNumber}" />
-            </StackPanel>
-            <StackPanel Grid.Row="0"
-                        Grid.Column="2"
-                        Style="{StaticResource xwBox}">
-                <TextBlock Text="02"
-                           Style="{StaticResource xwNumber}" />
-            </StackPanel>
-            <StackPanel Grid.Row="0"
-                        Grid.Column="3"
-                        Style="{StaticResource xwBox}">
-                <TextBlock Text="03"
-                           Style="{StaticResource xwNumber}" />
-            </StackPanel>
-            <StackPanel Grid.Row="0"
-                        Grid.Column="4"
-                        Style="{StaticResource xwBox}">
-                <TextBlock Text="04"
-                           Style="{StaticResource xwNumber}" />
-            </StackPanel>-->
         </Grid>
     </Grid>
 

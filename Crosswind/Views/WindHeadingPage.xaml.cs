@@ -22,6 +22,13 @@ namespace Crosswind
             FillContentPanel();
         }
 
+        private void SetupStatusHeader()
+        {
+            StatusRunwayNumber.Text = model.NeedsRunway() ? "__" : model.Runway;
+            StatusWindHeadingNumber.Text = model.NeedsWindHeading() ? "__" : model.WindHeading;
+            StatusWindSpeedNumber.Text = model.NeedsWindSpeed() ? "__" : model.WindSpeed;
+        }
+
         private void FillContentPanel()
         {
             for (int i = 0; i < 36; i++)
@@ -55,17 +62,7 @@ namespace Crosswind
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             model = UrlService.ExtractModelFromQueryString(NavigationContext.QueryString);
-
-            //if (!string.IsNullOrWhiteSpace(model.WindHeading))
-            //{
-            //    var items = ContentPanel.Children.First(x =>
-            //    {
-            //        var sp = x as StackPanel;
-            //        return sp.Tag.ToString() == model.WindHeading;
-            //    });
-            //    var item = items as StackPanel;
-            //    item.Background = new SolidColorBrush(Colors.Blue);
-            //}
+            SetupStatusHeader();
 
             base.OnNavigatedTo(e);
         }
