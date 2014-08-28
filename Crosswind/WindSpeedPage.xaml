@@ -68,7 +68,7 @@
                      GotFocus="TextBox_GotFocus"
                      TabIndex="0"
                      InputScope="Number" />
-            <TextBlock Text="kn"
+            <TextBlock Text="kt"
                        Grid.Row="0"
                        Grid.Column="3"
                        FontSize="64"

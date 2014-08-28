@@ -90,7 +90,7 @@
                     <Style x:Key="xwKnots"
                            TargetType="TextBlock">
                         <Setter Property="Text"
-                                Value="kn" />
+                                Value="kt" />
                         <Setter Property="VerticalAlignment"
                                 Value="Bottom" />
                         <Setter Property="Margin"
@@ -107,7 +107,6 @@
                         Style="{StaticResource xwBox}">
                 <StackPanel Style="{StaticResource xwNumbers}">
                     <TextBlock x:Name="RunwayNumber"
-                               Text="31"
                                Style="{StaticResource xwNumber}" />
                     <TextBlock Style="{StaticResource xwDegree}" />
                 </StackPanel>
@@ -120,7 +119,6 @@
                         Style="{StaticResource xwBox}">
                 <StackPanel Style="{StaticResource xwNumbers}">
                     <TextBlock x:Name="WindHeadingNumber"
-                               Text="32"
                                Style="{StaticResource xwNumber}" />
                     <TextBlock Style="{StaticResource xwDegree}" />
                 </StackPanel>
@@ -133,7 +131,6 @@
                         Style="{StaticResource xwBox}">
                 <StackPanel Style="{StaticResource xwNumbers}">
                     <TextBlock x:Name="WindSpeedNumber"
-                               Text="33"
                                Style="{StaticResource xwNumber}" />
                     <TextBlock Style="{StaticResource xwKnots}" />
                 </StackPanel>
@@ -147,10 +144,9 @@
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Right">
                 <TextBlock x:Name="CrosswindNumber"
-                           Text="34"
                            Foreground="{StaticResource PhoneAccentBrush}"
                            FontSize="288" />
-                <TextBlock Text="kn"
+                <TextBlock Text="kt"
                            FontSize="72"
                            VerticalAlignment="Bottom"
                            Padding="12,0,0,54" />

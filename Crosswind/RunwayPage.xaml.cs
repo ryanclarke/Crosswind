@@ -22,6 +22,13 @@ namespace Crosswind
             FillContentPanel();
         }
 
+        private void SetupStatusHeader()
+        {
+            StatusRunwayNumber.Text = model.Runway ?? "__";
+            StatusWindHeadingNumber.Text = model.WindHeading ?? "__";
+            StatusWindSpeedNumber.Text = model.WindSpeed ?? "__";
+        }
+
         private void FillContentPanel()
         {
             for (int i = 0; i < 36; i++)
@@ -38,6 +45,7 @@ namespace Crosswind
                 sp.Tap += sp_Tap;
                 sp.Tag = string.Format("{0:00}", i);
                 sp.Children.Add(tb);
+
                 Grid.SetRow(sp, (int)Math.Floor(i / 4.0));
                 Grid.SetColumn(sp, i % 4);
 
@@ -48,6 +56,8 @@ namespace Crosswind
         private void sp_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             model.Runway = (string)(sender as StackPanel).Tag;
+            SetupStatusHeader();
+
             var uri = UrlService.CreateNavigationUri(model);
             NavigationService.Navigate(uri);
         }
@@ -55,17 +65,7 @@ namespace Crosswind
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             model = UrlService.ExtractModelFromQueryString(NavigationContext.QueryString);
-
-            //if (!string.IsNullOrWhiteSpace(model.Runway))
-            //{
-            //    var items = ContentPanel.Children.First(x =>
-            //    {
-            //        var sp = x as StackPanel;
-            //        return sp.Tag.ToString() == model.Runway;
-            //    });
-            //    var item = items as StackPanel;
-            //    item.Background = new SolidColorBrush(Colors.Blue);
-            //}
+            SetupStatusHeader();
 
             base.OnNavigatedTo(e);
         }
