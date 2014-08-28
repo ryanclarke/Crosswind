@@ -27,9 +27,18 @@ namespace Crosswind
             };
         }
 
+        private void SetupStatusHeader()
+        {
+            StatusRunwayNumber.Text = model.NeedsRunway() ? "__" : model.Runway;
+            StatusWindHeadingNumber.Text = model.NeedsWindHeading() ? "__" : model.WindHeading;
+            StatusWindSpeedNumber.Text = model.NeedsWindSpeed() ? "__" : model.WindSpeed;
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             model = UrlService.ExtractModelFromQueryString(NavigationContext.QueryString);
+            SetupStatusHeader();
+
             base.OnNavigatedTo(e);
         }
 

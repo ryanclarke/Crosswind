@@ -39,7 +39,7 @@ namespace Crosswind
 
         private void WindSpeed_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            model.WindSpeed = WindHeadingNumber.Text;
+            model.WindSpeed = WindSpeedNumber.Text;
             var uri = UrlService.CreateNavigationUri(UrlService.WindSpeedPage, model);
             NavigationService.Navigate(uri);
         }
