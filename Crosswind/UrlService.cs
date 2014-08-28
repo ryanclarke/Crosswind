@@ -12,10 +12,12 @@ namespace Crosswind
         private static string WindHeading = "WindHeading";
         private static string WindSpeed = "WindSpeed";
 
-        public static string MainPage = "/MainPage.xaml";
-        public static string RunwayPage = "/RunwayPage.xaml";
-        public static string WindHeadingPage = "/WindHeadingPage.xaml";
-        public static string WindSpeedPage = "/WindSpeedPage.xaml";
+        private static string ViewsDir = "/Views";
+
+        public static string MainPage = ViewsDir + "/MainPage.xaml";
+        public static string RunwayPage = ViewsDir + "/RunwayPage.xaml";
+        public static string WindHeadingPage = ViewsDir + "/WindHeadingPage.xaml";
+        public static string WindSpeedPage = ViewsDir + "/WindSpeedPage.xaml";
 
         public static Model ExtractModelFromQueryString(IDictionary<string, string> queryString)
         {
