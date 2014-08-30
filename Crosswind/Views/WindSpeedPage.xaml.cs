@@ -47,7 +47,7 @@ namespace Crosswind
             if (Digit1.Text.Any())
             {
                 Digit2.Focus();
-                Underscore1.Fill = new SolidColorBrush(Colors.White);
+                Underscore1.Fill = App.Current.Resources["PhoneForegroundBrush"] as SolidColorBrush;
                 Underscore2.Fill = App.Current.Resources["WindSpeedColor"] as SolidColorBrush;
             }
         }
@@ -56,6 +56,8 @@ namespace Crosswind
         {
             if (Digit2.Text.Any())
             {
+                this.Focus();
+
                 Underscore2.Fill = new SolidColorBrush(Colors.White);
 
                 model.WindSpeed = EnteredWindSpeed();

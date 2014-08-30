@@ -9,11 +9,11 @@
         <local:LocalizedStrings xmlns:local="clr-namespace:Crosswind"
                                 x:Key="LocalizedStrings" />
         <SolidColorBrush x:Key="RunwayColor"
-                         Color="{StaticResource PhoneAccentColor}" />
+                         Color="DarkGray" />
         <SolidColorBrush x:Key="WindHeadingColor"
                          Color="DeepSkyBlue" />
         <SolidColorBrush x:Key="WindSpeedColor"
-                         Color="{StaticResource PhoneAccentColor}" />
+                         Color="#FFFA6800" />
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

@@ -15,6 +15,7 @@ namespace Crosswind
         private static string ViewsDir = "/Views";
 
         public static string MainPage = ViewsDir + "/MainPage.xaml";
+        public static string AboutPage = ViewsDir + "/AboutPage.xaml";
         public static string RunwayPage = ViewsDir + "/RunwayPage.xaml";
         public static string WindHeadingPage = ViewsDir + "/WindHeadingPage.xaml";
         public static string WindSpeedPage = ViewsDir + "/WindSpeedPage.xaml";
