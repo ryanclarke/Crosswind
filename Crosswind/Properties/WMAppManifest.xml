@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{067e2a01-850c-4206-b62c-40eb08e04629}" Title="Crosswind" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Crosswind author" Description="Sample description" Publisher="Crosswind" PublisherID="{2deebc7f-6ef2-466d-9b5f-d7c3ad9e9cf4}">
-    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+  <App xmlns="" ProductID="{067e2a01-850c-4206-b62c-40eb08e04629}" Title=". Crosswind" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Crosswind author" Description="Sample description" Publisher="Crosswind" PublisherID="{2deebc7f-6ef2-466d-9b5f-d7c3ad9e9cf4}">
+    <IconPath IsRelative="true" IsResource="false">Assets\CrosswindLogo159.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
@@ -16,10 +16,11 @@
     <Tokens>
       <PrimaryToken TokenID="CrosswindToken" TaskName="_default">
         <TemplateFlip>
-          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
+          <SmallImageURI IsRelative="true" IsResource="false">Assets\CrosswindLogo159.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
-          <Title>Crosswind</Title>
+          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\CrosswindLogo336.png</BackgroundImageURI>
+          <Title>
+          </Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>
