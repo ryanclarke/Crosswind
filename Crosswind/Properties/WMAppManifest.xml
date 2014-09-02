@@ -1,14 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{067e2a01-850c-4206-b62c-40eb08e04629}" Title=". Crosswind" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Crosswind author" Description="Sample description" Publisher="Crosswind" PublisherID="{2deebc7f-6ef2-466d-9b5f-d7c3ad9e9cf4}">
+  <Languages xmlns="">
+    <Language code="en" />
+  </Languages>
+  <App xmlns="" ProductID="{067e2a01-850c-4206-b62c-40eb08e04629}" Title="Crosswind" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Ryan Clarke" Description="Sample description" Publisher="Crosswind" PublisherID="{2deebc7f-6ef2-466d-9b5f-d7c3ad9e9cf4}">
     <IconPath IsRelative="true" IsResource="false">Assets\CrosswindLogo159.png</IconPath>
     <Capabilities>
-      <Capability Name="ID_CAP_NETWORKING" />
-      <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
-      <Capability Name="ID_CAP_MEDIALIB_PLAYBACK" />
-      <Capability Name="ID_CAP_SENSORS" />
-      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
     </Capabilities>
     <Tasks>
       <DefaultTask Name="_default" NavigationPage="/Views/RunwayPage.xaml" />

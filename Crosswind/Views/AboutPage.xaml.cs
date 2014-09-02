@@ -16,5 +16,15 @@ namespace Crosswind.Views
         {
             InitializeComponent();
         }
+
+        private void Twitter_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            Windows.System.Launcher.LaunchUriAsync(new Uri("https://twitter.com/RyanSClarke", UriKind.Absolute));
+        }
+
+        private void Email_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            Windows.System.Launcher.LaunchUriAsync(new Uri("mailto://ryan+crosswind@ryanclarke.net?Crosswind", UriKind.Absolute));
+        }
     }
 }
