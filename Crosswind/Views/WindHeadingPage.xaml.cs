@@ -13,8 +13,6 @@ namespace Crosswind
 {
     public partial class WindHeadingPage : PhoneApplicationPage
     {
-        private Model model;
-
         public WindHeadingPage()
         {
             InitializeComponent();
@@ -24,9 +22,9 @@ namespace Crosswind
 
         private void SetupStatusHeader()
         {
-            StatusRunwayNumber.Text = model.NeedsRunway() ? "__" : model.Runway;
-            StatusWindHeadingNumber.Text = model.NeedsWindHeading() ? "__" : model.WindHeading;
-            StatusWindSpeedNumber.Text = model.NeedsWindSpeed() ? "__" : model.WindSpeed;
+            StatusRunwayNumber.Text = App.Vm.NeedsRunway() ? "__" : App.Vm.Runway;
+            StatusWindHeadingNumber.Text = App.Vm.NeedsWindHeading() ? "__" : App.Vm.WindHeading;
+            StatusWindSpeedNumber.Text = App.Vm.NeedsWindSpeed() ? "__" : App.Vm.WindSpeed;
         }
 
         private void FillContentPanel()
@@ -54,14 +52,13 @@ namespace Crosswind
 
         private void sp_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            model.WindHeading = (string)(sender as StackPanel).Tag;
-            var uri = UrlService.CreateNavigationUri(model);
+            App.Vm.WindHeading = (string)(sender as StackPanel).Tag;
+            var uri = UriService.CreateNavigationUri(App.Vm);
             NavigationService.Navigate(uri);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            model = UrlService.ExtractModelFromQueryString(NavigationContext.QueryString);
             SetupStatusHeader();
 
             base.OnNavigatedTo(e);

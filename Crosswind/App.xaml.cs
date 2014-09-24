@@ -18,6 +18,8 @@ namespace Crosswind
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
 
+        public static Model Vm { get; private set; }
+
         /// <summary>
         /// Constructor for the Application object.
         /// </summary>
@@ -55,6 +57,7 @@ namespace Crosswind
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
+            Vm = new Model();
         }
 
         // Code to execute when the application is launching (eg, from Start)

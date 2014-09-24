@@ -14,8 +14,6 @@ namespace Crosswind
 {
     public partial class WindSpeedPage : PhoneApplicationPage
     {
-        private Model model;
-
         public WindSpeedPage()
         {
             InitializeComponent();
@@ -29,14 +27,13 @@ namespace Crosswind
 
         private void SetupStatusHeader()
         {
-            StatusRunwayNumber.Text = model.NeedsRunway() ? "__" : model.Runway;
-            StatusWindHeadingNumber.Text = model.NeedsWindHeading() ? "__" : model.WindHeading;
-            StatusWindSpeedNumber.Text = model.NeedsWindSpeed() ? "__" : model.WindSpeed;
+            StatusRunwayNumber.Text = App.Vm.NeedsRunway() ? "__" : App.Vm.Runway;
+            StatusWindHeadingNumber.Text = App.Vm.NeedsWindHeading() ? "__" : App.Vm.WindHeading;
+            StatusWindSpeedNumber.Text = App.Vm.NeedsWindSpeed() ? "__" : App.Vm.WindSpeed;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            model = UrlService.ExtractModelFromQueryString(NavigationContext.QueryString);
             SetupStatusHeader();
 
             base.OnNavigatedTo(e);
@@ -60,8 +57,8 @@ namespace Crosswind
 
                 Underscore2.Fill = new SolidColorBrush(Colors.White);
 
-                model.WindSpeed = EnteredWindSpeed();
-                var uri = UrlService.CreateNavigationUri(model);
+                App.Vm.WindSpeed = EnteredWindSpeed();
+                var uri = UriService.CreateNavigationUri(App.Vm);
                 NavigationService.Navigate(uri);
             }
         }

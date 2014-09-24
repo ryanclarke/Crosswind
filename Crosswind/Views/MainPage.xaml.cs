@@ -13,8 +13,6 @@ namespace Crosswind
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        private Model model;
-
         public MainPage()
         {
             InitializeComponent();
@@ -22,30 +20,28 @@ namespace Crosswind
 
         private void Runway_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            model.Runway = RunwayNumber.Text;
-            var uri = UrlService.CreateNavigationUri(UrlService.RunwayPage, model); 
+            App.Vm.Runway = RunwayNumber.Text;
+            var uri = new Uri(UriService.RunwayPage, UriKind.Relative); 
             NavigationService.Navigate(uri);
         }
 
         private void WindHeading_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            model.WindHeading = WindHeadingNumber.Text;
-            var uri = UrlService.CreateNavigationUri(UrlService.WindHeadingPage, model);
+            App.Vm.WindHeading = WindHeadingNumber.Text;
+            var uri = new Uri(UriService.WindHeadingPage, UriKind.Relative);
             NavigationService.Navigate(uri);
         }
 
         private void WindSpeed_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            model.WindSpeed = WindSpeedNumber.Text;
-            var uri = UrlService.CreateNavigationUri(UrlService.WindSpeedPage, model);
+            App.Vm.WindSpeed = WindSpeedNumber.Text;
+            var uri = new Uri(UriService.WindSpeedPage, UriKind.Relative);
             NavigationService.Navigate(uri);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
-            model = UrlService.ExtractModelFromQueryString(NavigationContext.QueryString);
 
             SetupView();
 
@@ -54,12 +50,12 @@ namespace Crosswind
 
         private void SetupView()
         {
-            RunwayNumber.Text = model.Runway;
-            WindHeadingNumber.Text = model.WindHeading;
-            WindSpeedNumber.Text = model.WindSpeed;
-            CrosswindNumber.Text = model.CrosswindSpeed();
-            CrosswindDirection.Text = model.CrosswindDirection();
-            CrosswindDirectionBlock.Visibility = model.ShouldCrosswindDirection() ? Visibility.Visible : Visibility.Collapsed;
+            RunwayNumber.Text = App.Vm.Runway;
+            WindHeadingNumber.Text = App.Vm.WindHeading;
+            WindSpeedNumber.Text = App.Vm.WindSpeed;
+            CrosswindNumber.Text = App.Vm.CrosswindSpeed();
+            CrosswindDirection.Text = App.Vm.CrosswindDirection();
+            CrosswindDirectionBlock.Visibility = App.Vm.ShouldCrosswindDirection() ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void ClearBackStackToStartOfWizard()
@@ -72,7 +68,7 @@ namespace Crosswind
 
         private void About_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri(UrlService.AboutPage, UriKind.Relative));
+            NavigationService.Navigate(new Uri(UriService.AboutPage, UriKind.Relative));
         }
     }
 }
