@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using Crosswind.Resources;
 
 namespace Crosswind
 {
@@ -27,9 +28,14 @@ namespace Crosswind
 
         private void SetupStatusHeader()
         {
-            StatusRunwayNumber.Text = App.Vm.NeedsRunway() ? "__" : App.Vm.Runway;
-            StatusWindHeadingNumber.Text = App.Vm.NeedsWindHeading() ? "__" : App.Vm.WindHeading;
-            StatusWindSpeedNumber.Text = App.Vm.NeedsWindSpeed() ? "__" : App.Vm.WindSpeed;
+            StatusRunwayNumber.Text = CreateStatusHeaderText(App.Vm.Runway);
+            StatusWindHeadingNumber.Text = CreateStatusHeaderText(App.Vm.WindHeading);
+            StatusWindSpeedNumber.Text = CreateStatusHeaderText(App.Vm.WindSpeed);
+        }
+
+        private string CreateStatusHeaderText(string number)
+        {
+            return number ?? AppResources.EmptyStatusHeader;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Crosswind.Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,32 +9,35 @@ namespace Crosswind
 {
     class UriService
     {
-        private static string ViewsDir = "/Views";
-
-        public static string MainPage = ViewsDir + "/MainPage.xaml";
-        public static string AboutPage = ViewsDir + "/AboutPage.xaml";
-        public static string RunwayPage = ViewsDir + "/RunwayPage.xaml";
-        public static string WindHeadingPage = ViewsDir + "/WindHeadingPage.xaml";
-        public static string WindSpeedPage = ViewsDir + "/WindSpeedPage.xaml";
+        public static Uri MainPage = AppUri(AppUris.MainPage);
+        public static Uri AboutPage = AppUri(AppUris.AboutPage);
+        public static Uri RunwayPage = AppUri(AppUris.RunwayPage);
+        public static Uri WindHeadingPage = AppUri(AppUris.WindHeadingPage);
+        public static Uri WindSpeedPage = AppUri(AppUris.WindSpeedPage);
 
         internal static Uri CreateNavigationUri(Model model)
         {
             if (model.NeedsRunway())
             {
-                return new Uri(RunwayPage, UriKind.Relative);
+                return RunwayPage;
             }
             else if (model.NeedsWindHeading())
             {
-                return new Uri(WindHeadingPage, UriKind.Relative);
+                return WindHeadingPage;
             }
             else if (model.NeedsWindSpeed())
             {
-                return new Uri(WindSpeedPage, UriKind.Relative);
+                return WindSpeedPage;
             }
             else
             {
-                return new Uri(MainPage, UriKind.Relative);
+                return MainPage;
             }
+        }
+
+        private static Uri AppUri(string page)
+        {
+            return new Uri(AppUris.ViewsDir + page, UriKind.Relative);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Crosswind.Resources;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,11 +69,11 @@ namespace Crosswind
                 }
                 else if ((windHeading - runway + 36) % 36 < 18)
                 {
-                    return "right";
+                    return AppResources.Right;
                 }
                 else
                 {
-                    return "left";
+                    return AppResources.Left;
                 }
             }
             else

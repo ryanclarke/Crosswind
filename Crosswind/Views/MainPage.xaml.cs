@@ -21,22 +21,19 @@ namespace Crosswind
         private void Runway_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             App.Vm.Runway = RunwayNumber.Text;
-            var uri = new Uri(UriService.RunwayPage, UriKind.Relative); 
-            NavigationService.Navigate(uri);
+            NavigationService.Navigate(UriService.RunwayPage);
         }
 
         private void WindHeading_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             App.Vm.WindHeading = WindHeadingNumber.Text;
-            var uri = new Uri(UriService.WindHeadingPage, UriKind.Relative);
-            NavigationService.Navigate(uri);
+            NavigationService.Navigate(UriService.WindHeadingPage);
         }
 
         private void WindSpeed_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             App.Vm.WindSpeed = WindSpeedNumber.Text;
-            var uri = new Uri(UriService.WindSpeedPage, UriKind.Relative);
-            NavigationService.Navigate(uri);
+            NavigationService.Navigate(UriService.WindSpeedPage);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -68,7 +65,7 @@ namespace Crosswind
 
         private void About_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri(UriService.AboutPage, UriKind.Relative));
+            NavigationService.Navigate(UriService.AboutPage);
         }
     }
 }
