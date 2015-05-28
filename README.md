@@ -20,7 +20,7 @@ And now, the link you’ve all been waiting for: check out “Crosswind” in th
 
 This one’s for you, Dad.
 
-_Originally posted at [http://www.ryanclarke.net](http://www.ryanclarke.net/post/crosswind-the-app)._
+_Originally posted at [http://www.ryanclarke.net](http://www.ryanclarke.net/project/crosswind)._
 
 ## Screeshots
 
